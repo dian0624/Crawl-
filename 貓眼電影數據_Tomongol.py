@@ -1,7 +1,6 @@
 import re 
 import pymongo
 import requests
-import warnings
 
 class CatMovie():
     def __init__(self):

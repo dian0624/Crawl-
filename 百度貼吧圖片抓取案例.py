@@ -7,7 +7,8 @@ class ImageSpider:
     def __init__(self):
         self.baseurl = "http://tieba.baidu.com/f?"
         self.baseimurl = "http://tieba.baidu.com"
-        self.header_list = [{"User-Agent":"Mozilla/5.0(compatible;MSIE9.0;WindowsNT6.1;Trident/5.0;"}]
+        self.header_list = [{"User-Agent":"Mozilla/5.0(compatible;MSIE9.0;WindowsNT6.1;Trident/5.0;"},
+        {"Mozilla/5.0 (Windows NT 6.2) AppleWebKit/536.3 (KHTML, like Gecko) Chrome/19.0.1062.0 Safari/536.3"}]
         self.headers = random.choice(self.header_list)
 
     def getPageUrl(self,params):
