@@ -1,4 +1,6 @@
-有道翻譯POST_requests ---> \n
+有道翻譯POST_requests ---> 
+
+
 功能說明:模擬進入有道翻譯，輸入欲翻譯的單詞，打印單詞翻譯。
 技術點: request、POST請求、json
 
