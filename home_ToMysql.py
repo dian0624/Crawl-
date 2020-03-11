@@ -7,7 +7,7 @@ class HomeSpyder:
     def __init__(self):
         self.headers = {"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36"}
         self.baseurl = "https://bj.lianjia.com/ershoufang/pg"
-        self.proxies = {"http":"http://216.198.188.26:51068"}
+        self.proxies = {"http":"http://216.198.188.26:51068"} #代理已過期
         self.page = 1
         self.db = pymysql.connect("localhost","root",
                                 "a123456",charset="utf8")
