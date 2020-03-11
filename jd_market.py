@@ -1,10 +1,15 @@
 from selenium import webdriver
 import time 
-import csv
+import pymongo
 
 pro = input("請輸入要爬取的商品:")
 dreiver = webdriver.Chrome()
 dreiver.get('https://www.jd.com/')
+
+conn = pymongo.MongoClient("localhost",27017)
+db = conn.jdDB
+myset = db.jdinfo
+
 
 text = dreiver.find_element_by_class_name('text')
 text.send_keys(pro)
@@ -26,11 +31,9 @@ while True:
         commit = m[2]
         market = m[3]
 
-        with open("商品.csv","a",newline="",encoding="utf-8") as f:
-            writer = csv.writer(f)
-            L = [name.strip(),price.strip(),
-                 commit.strip(),market.strip()]
-            writer.writerow(L)
+        dic = {"name":name,"commit":commit,"market":market,"price":price}
+        myset.insert(dic)
+
 
     if dreiver.page_source.find('pn-next disabled') == -1:
         time.sleep(2)
@@ -39,4 +42,3 @@ while True:
         page += 1
     else:
         break
-
